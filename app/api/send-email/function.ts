@@ -10,7 +10,7 @@ export function MailMessage(values: CheckoutFormData, cart: CartItem[]) {
       city,
       state,
       postalCode,
-      country,
+      district,
       shippingSameAsBilling,
       shippingAddress,
       shippingCity,
@@ -39,7 +39,7 @@ export function MailMessage(values: CheckoutFormData, cart: CartItem[]) {
           <li><strong>City:</strong> ${city}</li>
           <li><strong>State:</strong> ${state}</li>
           <li><strong>Postal Code:</strong> ${postalCode}</li>
-          <li><strong>Country:</strong> ${country}</li>
+          <li><strong>District:</strong> ${district}</li>
         </ul>
   
         <h3>📦 Shipping Address</h3>
