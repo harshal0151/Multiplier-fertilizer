@@ -47,7 +47,7 @@ const productData = [
 ];
 
 const FeaturedProduct = ({ className }: { className?: string }) => {
-  const { addToCart } = useCartStore();
+  const { addToCart,cart } = useCartStore();
   const featured = productData.filter((item) => item.featured);
 
   return (
@@ -128,12 +128,14 @@ const FeaturedProduct = ({ className }: { className?: string }) => {
                     </div>
 
                     {/* Add to Cart Button */}
+                  
                     <button
                       onClick={() => addToCart({ ...product, quantity: 1 })}
+                      disabled={cart.some((item) => item.id === product.id) ?true:false}
                       className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 flex items-center justify-center transition-colors duration-300 w-full sm:w-auto"
                     >
                       <CiShoppingCart className="mr-2" size={20} />
-                      Add to Cart
+                      {cart.some((item) => item.id === product.id) ? "Already in Cart" : "Add to Cart"}
                     </button>
                   </div>
                 </div>
