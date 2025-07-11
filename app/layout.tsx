@@ -32,7 +32,7 @@ export default function RootLayout({
         {/* <ProductProvider> */}
           <Nav />
           <div className="mt-[90px]">{children}</div>
-          <Toaster />
+          <Toaster richColors theme="light" position="top-right" expand />
           <Footer />
         {/* </ProductProvider> */}
       </body>

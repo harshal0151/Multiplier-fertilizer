@@ -4,7 +4,6 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { toast } from "sonner";
-import { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { FieldProps } from 'formik';
 import * as Yup from 'yup';
@@ -30,7 +29,7 @@ const validationSchema = Yup.object().shape({
   city: Yup.string().required('City is required'),
   state: Yup.string().required('State is required'),
   postalCode: Yup.string().required('Postal code is required'),
-  country: Yup.string().required('Country is required'),
+  district: Yup.string().required('district is required'),
   
   // Shipping Address - conditional validation
   shippingSameAsBilling: Yup.boolean(),
@@ -70,7 +69,7 @@ const initialValues: CheckoutFormData = {
   city: '',
   state: '',
   postalCode: '',
-  country: '',
+  district: '',
   shippingSameAsBilling: true,
   shippingAddress: '',
   shippingCity: '',
@@ -80,18 +79,17 @@ const initialValues: CheckoutFormData = {
 };
 
 const CheckoutForm = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { cart } = useCartStore();
+
+  const { cart, emptyCart } = useCartStore();
   const router = useRouter();
 
-  const handleSubmit = async (values: CheckoutFormData) => {
-    setIsSubmitting(true);
-    
+  const handleSubmit = async (values: CheckoutFormData, { setSubmitting }: any) => {
+    emptyCart();
     
     try {
-      // Simulate API call
-      // await new Promise(resolve => setTimeout(resolve, 2000));
-      const res= await fetch('/api/send-email', {
+      
+    
+      const promise = fetch('/api/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -101,27 +99,29 @@ const CheckoutForm = () => {
           subject: 'Welcome!',
           message: 'Thank you for signing up!',
           values,
-          cart
-        
+          cart,
         }),
+      }).then(async (res) => {
+        if (!res.ok) throw new Error('Failed to send email');
+        return res.json();
       });
-      const result=await res.json();
-      console.log(result)
-      
-      
-      if (result.success) {
-        toast("Order Placed Successfully!");
-        router.push('/');
-      } else {
-        toast("Failed to send email.");
-      }
-      
+    
+      await toast.promise(promise, {
+        loading: 'Sending email...',
+        success: () => {
+          router.push('/');
+          return `Order placed successfully!`;
+        },
+        error: 'Failed to send email.',
+      });
     } catch (error) {
-      toast("Something went wrong. Please try again.");
-      console.log(error);
+      toast.error('Something went wrong. Please try again.');
+      console.error(error);
     } finally {
-      setIsSubmitting(false);
+      setSubmitting(false); // Always reset submitting state
     }
+    
+    
   };
 
   return (
@@ -132,9 +132,13 @@ const CheckoutForm = () => {
           validationSchema={validationSchema}
           onSubmit={handleSubmit}
         >
-          {({ values, errors, touched }) => (
+          {({ values, errors, touched, isSubmitting, isValid, dirty }) => (
+            
             <Form className="space-y-8">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {
+                  (console.log(errors,'errors'),null)
+                }
                 
                 {/* Personal Information */}
                 <Card className="shadow-box ">
@@ -177,13 +181,13 @@ const CheckoutForm = () => {
                     </div>
                     
                     <div>
-                      <Label htmlFor="phone" className='p-2'>Phone Number *</Label>
+                      <Label htmlFor="phone" className='p-2'>Mobile Number *</Label>
                       <Field name="phone">
                         {({ field }: FieldProps) => (
                           <Input
                             {...field}
                             id="phone"
-                            type="tel"
+                            type="number"
                             className={errors.phone && touched.phone ? 'border-red-500' : ''}
                             placeholder="Enter your phone number"
                           />
@@ -220,7 +224,7 @@ const CheckoutForm = () => {
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <Label htmlFor="city" className='p-2'>City *</Label>
+                        <Label htmlFor="city" className='p-2'>City/Tehsil *</Label>
                         <Field name="city">
                           {({ field }: FieldProps) => (
                             <Input
@@ -233,6 +237,40 @@ const CheckoutForm = () => {
                           )}
                         </Field>
                         <ErrorMessage name="city" component="p" className="text-red-500 text-sm mt-1" />
+                      </div>
+                      
+                      <div>
+                        <Label htmlFor="district" className='p-2'>District *</Label>
+                        <Field name="district">
+                          {({ field }: FieldProps) => (
+                            <Input
+                              {...field}
+                              id="district"
+                              type="text"
+                              className={errors.district && touched.district ? 'border-red-500' : ''}
+                              placeholder="Enter District"
+                            />
+                          )}
+                        </Field>
+                        <ErrorMessage name="district" component="p" className="text-red-500 text-sm mt-1" />
+                      </div>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <Label htmlFor="postalCode" className='p-2'>PIN Code *</Label>
+                        <Field name="postalCode">
+                          {({ field }: FieldProps) => (
+                            <Input
+                              {...field}
+                              id="postalCode"
+                              type="text"
+                              className={errors.postalCode && touched.postalCode ? 'border-red-500' : ''}
+                              placeholder="Enter postal code"
+                            />
+                          )}
+                        </Field>
+                        <ErrorMessage name="postalCode" component="p" className="text-red-500 text-sm mt-1" />
                       </div>
                       
                       <div>
@@ -249,40 +287,6 @@ const CheckoutForm = () => {
                           )}
                         </Field>
                         <ErrorMessage name="state" component="p" className="text-red-500 text-sm mt-1" />
-                      </div>
-                    </div>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <Label htmlFor="postalCode" className='p-2'>Postal Code *</Label>
-                        <Field name="postalCode">
-                          {({ field }: FieldProps) => (
-                            <Input
-                              {...field}
-                              id="postalCode"
-                              type="text"
-                              className={errors.postalCode && touched.postalCode ? 'border-red-500' : ''}
-                              placeholder="Enter postal code"
-                            />
-                          )}
-                        </Field>
-                        <ErrorMessage name="postalCode" component="p" className="text-red-500 text-sm mt-1" />
-                      </div>
-                      
-                      <div>
-                        <Label htmlFor="country" className='p-2'>Country *</Label>
-                        <Field name="country">
-                          {({ field }: FieldProps) => (
-                            <Input
-                              {...field}
-                              id="country"
-                              type="text"
-                              className={errors.country && touched.country ? 'border-red-500' : ''}
-                              placeholder="Enter country"
-                            />
-                          )}
-                        </Field>
-                        <ErrorMessage name="country" component="p" className="text-red-500 text-sm mt-1" />
                       </div>
                     </div>
                   </CardContent>
@@ -403,7 +407,7 @@ const CheckoutForm = () => {
               <div className="flex justify-center pt-6">
                 <Button
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || !isValid || !dirty}
                   className="btn-primary min-w-[200px]"
                 >
                   {isSubmitting ? 'Processing...' : 'Place Order'}

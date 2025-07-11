@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { CartItem } from '@/app/type/Product';
+import { toast } from "sonner";
 
 
 
@@ -9,6 +10,7 @@ interface CartState {
   removeFromCart: (id: number) => void;
   incrementQuantity: (id: number) => void;
   decrementQuantity: (id: number) => void;
+  emptyCart: () => void;
 }
 
 export const useCartStore = create<CartState>((set) => ({
@@ -16,6 +18,7 @@ export const useCartStore = create<CartState>((set) => ({
   addToCart: (product) =>
     set((state) => {
       const exists = state.cart.find((item) => item.id === product.id);
+      toast.info("Added to Cart");
       if (exists) {
         console.log(product.quantity,'product.quantity')
         return {
@@ -44,4 +47,5 @@ export const useCartStore = create<CartState>((set) => ({
           : item
       ),
     })),
+    emptyCart: () => set({ cart: [] }),
 }));

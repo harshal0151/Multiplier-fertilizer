@@ -9,7 +9,7 @@ export interface CheckoutFormData {
     city: string;
     state: string;
     postalCode: string;
-    country: string;
+    district: string;
     
     // Shipping Address (optional)
     shippingSameAsBilling: boolean;
