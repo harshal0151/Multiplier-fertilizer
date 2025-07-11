@@ -9,7 +9,7 @@ import { FieldProps } from 'formik';
 import * as Yup from 'yup';
 import { CheckoutFormData } from '@/constant/types';
 import { useCartStore } from '@/store/useCartStore';
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 
 // Validation schema using Yup
 const validationSchema = Yup.object().shape({
@@ -81,7 +81,7 @@ const initialValues: CheckoutFormData = {
 const CheckoutForm = () => {
 
   const { cart, emptyCart } = useCartStore();
-  const router = useRouter();
+  // const router = useRouter();
 
   const handleSubmit = async (values: CheckoutFormData, { setSubmitting }: any) => {
     emptyCart();
@@ -109,7 +109,7 @@ const CheckoutForm = () => {
       await toast.promise(promise, {
         loading: 'Sending email...',
         success: () => {
-          router.push('/');
+          window.location.href='https://wa.me/9284117732';
           return `Order placed successfully!`;
         },
         error: 'Failed to send email.',
