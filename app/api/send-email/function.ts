@@ -71,7 +71,7 @@ export function MailMessage(values: CheckoutFormData, cart: CartItem[]) {
               .map(
                 (item) => `
               <tr>
-                <td>${item.title}</td>
+                <td>${item.name}</td>
                 <td align="right">${item.quantity}</td>
                 <td align="right">₹${item.price * item.quantity}</td>
               </tr>
