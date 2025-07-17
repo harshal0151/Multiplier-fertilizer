@@ -39,7 +39,7 @@ const BannerCarousel = () => {
         ))}
       </Swiper>
 
-      <section className="min-h-[60vh] bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 py-16 px-4 sm:px-6 lg:px-10 overflow-hidden flex items-center">
+      <section className="min-h-[60vh] bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 py-6 px-4 sm:px-6 lg:px-10 overflow-hidden flex items-center">
         <div className="max-w-5xl mx-auto text-center">
           {/* Badge */}
           <div className="flex justify-center items-center mb-4">
