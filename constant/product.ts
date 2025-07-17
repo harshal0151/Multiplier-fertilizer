@@ -3,6 +3,7 @@ export const productData = [
     {
       id: 1,
       name: "Kad Multiplier 250gm Pouch",
+       subheading: "",
       price: 305,
       originalPrice: 305,
       shortDescription:
@@ -140,6 +141,7 @@ export const productData = [
     {
       id: 2,
       name: "Kad Multiplier 1kg Pouch",
+       subheading: "",
       price: 1100,
       originalPrice: 1100,
       shortDescription:
@@ -276,7 +278,8 @@ export const productData = [
     },
     {
       id: 3,
-      name: "Kad Multiplier 5kg Pouch",
+      name: "Kad Multiplier 5kg Box",
+      subheading: "20 pouches of 250gm each",
       price: 4100,
       originalPrice: 6100,
       shortDescription:
@@ -413,7 +416,8 @@ export const productData = [
     },
     {
       id: 4,
-      name: "Kad Multiplier 10kg Pouch",
+      name: "Kad Multiplier 10kg Box",
+       subheading: "10 pouches of 1KG each",
       price: 7500,
       originalPrice: 11000,
       shortDescription:
@@ -548,4 +552,5 @@ export const productData = [
         ],
       },
     },
+    
   ]

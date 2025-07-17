@@ -57,13 +57,13 @@ const ProductDetail = () => {
   return (
     <div className="min-h-screen bg-gray-50 px-4 lg:px-20 py-10">
       {/* Breadcrumb */}
-      <div className="text-sm text-gray-600 mb-4">
+      {/* <div className="text-sm text-gray-600 mb-4">
         <Link href="/">Home</Link> / <Link href="/#products">Products</Link> /{" "}
         {product.name}
-      </div>
+      </div> */}
 
       {/* Back Button */}
-      <div className="mb-6">
+      {/* <div className="mb-6">
         <Link
           href="/"
           className="flex items-center text-green-600 hover:text-green-700"
@@ -71,20 +71,22 @@ const ProductDetail = () => {
           <ArrowLeft size={20} className="mr-2" />
           Back to Products
         </Link>
-      </div>
+      </div> */}
 
       <div className="grid lg:grid-cols-2 gap-12">
         {/* Product Images */}
         <div>
-          <div className="rounded-2xl flex justify-center overflow-hidden shadow-lg bg-white">
-            <Image
-              src={product.images[selectedImage]}
-              alt={product.name}
-              width={600}
-              height={600}
-              className="w-[50%] object-cover"
-            />
-          </div>
+        <div className="rounded-2xl flex justify-center overflow-hidden shadow-lg bg-white w-full max-w-full">
+  <Image
+    src={product.images[selectedImage]}
+    alt={product.name}
+    width={600}
+    height={600}
+    className="w-full md:w-[50%] h-[300px] md:h-auto object-cover"
+
+  />
+</div>
+
           <div className="grid grid-cols-4 gap-4 mt-4">
             {product.images.map((img, i) => (
               <button
@@ -112,8 +114,8 @@ const ProductDetail = () => {
             <span className="bg-green-100 text-green-800 px-2 py-1 text-xs rounded-full">
               {product.category}
             </span>
-            <p className="text-gray-500 text-sm mt-1">{product.brand}</p>
-            <h1 className="text-3xl font-bold mt-2">{product.name}</h1>
+            {/* <p className="text-gray-500 text-sm mt-1">{product.brand}</p> */}
+            <h1 className="text-3xl font-bold mt-5">{product.name}</h1>
           </div>
 
           <div className="flex items-center gap-2 mb-2">

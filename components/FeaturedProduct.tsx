@@ -8,8 +8,6 @@ import { CiShoppingCart } from "react-icons/ci";
 import { useCartStore } from "@/store/useCartStore";
 import { productData } from "@/constant/product";
 
-
-
 // const productData = [
 //   {
 //     id: 1,
@@ -56,7 +54,7 @@ const FeaturedProduct = ({ className }: { className?: string }) => {
 
   return (
     <>
-      <div className="text-center p-4">
+      <div className="text-center p-4 bg-green-50">
         <h2 className="sm:text-5xl text-4xl p-3  font-semibold w-full text-center">
           Our <span className="text-green-700 font-semibold">Products</span>
         </h2>
@@ -65,13 +63,13 @@ const FeaturedProduct = ({ className }: { className?: string }) => {
           with our premium fertilizers and comprehensive support services.
         </p>
       </div>
-      <section className={`py-16 px-4 bg-green-50 ${className}`}>
+      <section className={`py-8 px-4 bg-green-50 ${className}`}>
         <div className="max-w-7xl mx-auto">
           <div className="grid gap-8  lg:grid-cols-3">
             {featured.map((product) => (
               <div
                 key={product.id}
-                className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 group flex flex-row lg:flex-col"
+                className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 group flex flex-row lg:flex-col justify-between"
               >
                 <Link
                   href={`/product/${product.id}`}
@@ -88,31 +86,38 @@ const FeaturedProduct = ({ className }: { className?: string }) => {
 
                 <div className="p-4 w-[65%] lg:w-full flex flex-col justify-between ">
                   <div className="gap-0.5 flex flex-col">
-                    <h3 className="text-lg font-semibold text-gray-800">
-                      {product.name}
-                    </h3>
+                    <Link href={`/product/${product.id}`}>
+                      <h3 className="text-[17px] font-semibold text-gray-800 hover:text-green-600 hover: transition-all duration-300">
+                        {product.name} <br />
+                        {product.subheading}
+                      </h3>
+                    </Link>
+
                     <p className="text-sm text-gray-600 mt-1 mb-3 line-clamp-2">
                       {product.description}
                     </p>
 
                     <div className="flex flex-wrap gap-2 mb-4">
-                      {product.features.map((feature, index) => (
-                        <span
-                          key={index}
-                          className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full"
-                        >
-                          {feature}
-                        </span>
-                      ))}
+                      {/* {product.features.map((feature, index) => ( */}
+                      <span
+                        // key={index}
+                        className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full line-clamp-1"
+                      >
+                        {product.features[0]}
+                      </span>
+                      {/* ))} */}
                     </div>
                   </div>
 
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mt-auto">
-                    <div className="flex items-center gap-4">
-                      <span className="text-xl font-bold text-green-600">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[18px] font-bold text-green-600 ">
                         ₹ {product.price}
                       </span>
-                      <span className="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-2xl">
+                      <span className="text-xs text-gray-500 line-through ">
+                        ₹ {product.originalPrice}
+                      </span>
+                      <span className="bg-red-100 text-red-800 text-[10px] px-2 py-1 rounded-2xl">
                         Save{" "}
                         {Math.round(
                           ((product.originalPrice - product.price) /
@@ -124,7 +129,7 @@ const FeaturedProduct = ({ className }: { className?: string }) => {
                     </div>
 
                     <button
-                      onClick={() => addToCart({...product,quantity:1})}
+                      onClick={() => addToCart({ ...product, quantity: 1 })}
                       disabled={cart.some((item) => item.id === product.id)}
                       className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 flex items-center justify-center transition-colors duration-300 w-full sm:w-auto"
                     >

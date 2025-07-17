@@ -15,7 +15,7 @@ export default function Home() {
        
         <FeaturedProduct />
         <Features/>
-        <Faqs/>
+        <Faqs/> 
         <Testimonials/>
       </div>
     </main>

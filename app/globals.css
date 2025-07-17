@@ -1,5 +1,10 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+
+/* @import 'react-toastify/dist/ReactToastify.css';
+@import './custom-toast.css'; */
+
+
 /*---break---*/
 @custom-variant dark (&:is(.dark *));
 
@@ -194,4 +199,19 @@ a:hover {
 
 .hide-scrollbar::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
+}
+
+
+.custom-toast {
+  background-color: #1e293b; /* Dark Slate */
+  color: #ffffff; /* White text */
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  border: 2px solid #38bdf8; /* Cyan border */
+  padding: 12px;
+}
+
+.custom-toast-body {
+  text-align: center;
 }
