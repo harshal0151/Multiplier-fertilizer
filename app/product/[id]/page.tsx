@@ -17,152 +17,14 @@ import {
 import { FaWhatsapp } from "react-icons/fa";
 import { CheckCircle } from "lucide-react";
 import { useCartStore } from "@/store/useCartStore";
-import images from "@/components/assets/productsImgs/ProductImgs"
-
+import { productData } from "@/constant/product";
 // Dummy Product Data
-const productData = [
-  {
-    id: "1",
-    name: "Kad Multiplier 250gm Pouch",
-    price: 305,
-    originalPrice: 305,
-    shortDescription:
-      "A 100% organic soil-rejuvenation technology that boosts crop yield, improves soil fertility, and reduces the need for chemical fertilizers.",
-    description:
-      "Multiplier is a modern organic technology that initiates a natural system through which crops receive free nutrition by restoring soil fertility. It also transforms poor and barren land into cultivable farmland by increasing the population of beneficial microbes and earthworms in the soil. Multiplier technology boosts crop production by up to 50% in the first year, and with continued use, yields can increase up to threefold within seven years. This technique eliminates crop malnutrition, protects plants from diseases and pests, and enhances both the quantity and quality of leaves, flowers, and fruits. By increasing the oxygen content in the soil, Multiplier reduces the presence of harmful viruses and ensures the return of earthworms providing farmers with free earthworm compost worth ₹4 to ₹10 lakhs every year. As a result of this technology, the dependence on chemical fertilisers and pesticides gradually diminishes, making pure, natural, and zero-budget farming a practical reality. Multiplier is neither a fertilizer nor a pesticide — it is the only modern soil-rejuvenation technology that empowers every farmer to become self-reliant.",
-    brand: "Kad",
-    category: "Organic Fertilizer",
-    rating: 4.9,
-    reviewCount: 324,
-    images: [images.kad250 , images.Kad250b],
-    featured: true,
-    weight: "250 gm",
-    features: [
-      "100% organic product suitable for all types of crops.",
-      "Increase in crop production up to 50% in the first year.",
-      "Crop production increases 3 times in seven years.",
-      "Savings up to 80% in cultivation costs.",
-      "Improves soil structure and fertility.",
-      "Boosts flowering, fruiting, and yield.",
-    ],
-    specifications: {
-      "Product Name": "Kad Multiplier 250gm Pouch",
-      "Type of fertilizer": "Organic",
-      "Suitable For": "All types of crops",
-      Form: "Powder",
-      Colour: "Black",
-      Odor: "May Vary",
-      Solubility: "Water soluble",
-      Contains: "Potassium humate 100% (W/W)",
-      "Organic Matter %": "100% Organic",
-      Certifications: [
-        "NPOP India",
-        "Apeda",
-        "Vimta",
-        "IFOAM",
-        "Biocert International",
-      ],
-      "Country of Origin": "Made In India",
-    },
-    benefits: [
-      {
-        title: "Revives Stagnant Crop Growth",
-        description:
-          "Multiplier technology reactivates stalled crop growth. When applied during the flowering stage, it significantly increases flower production and reduces flower drop.",
-      },
-      {
-        title: "Strengthens and Sustains Fruit Setting",
-        description:
-          "The flower-to-fruit conversion process becomes quicker and more effective. Existing fruits are retained better, ensuring consistent and reliable yields.",
-      },
-      {
-        title: "Enhances Leaf Colour and Size",
-        description:
-          "Leaves become lush, deep green, and more vibrant. New leaves grow larger, boosting the plant’s photosynthetic efficiency and overall vitality.",
-      },
-      {
-        title: "Promotes Holistic Crop Development",
-        description:
-          "Multiplier encourages the growth of more branches, each capable of bearing fruit. This results in a substantial increase in total crop yield.",
-      },
-      {
-        title: "Provides Natural Protection Against Pests and Diseases",
-        description:
-          "Crops develop enhanced resistance to pests and diseases, significantly reducing the need for chemical pesticide applications.",
-      },
-      {
-        title: "Quickly Resolves Leaf Nutrient Deficiencies",
-        description:
-          "Multiplier effectively addresses issues such as yellow mosaic in okra or leaf-edge reddening, commonly caused by nutrient deficiencies.",
-      },
-      {
-        title: "Improves the Size, Weight, and Colour of Produce",
-        description:
-          "Fruits and vegetables grow larger, heavier, and display more vibrant, appealing colours leading to better market value and higher returns per crate.",
-      },
-      {
-        title: "Elevates Taste and Nutritional Quality",
-        description:
-          "Multiplier-treated produce not only looks better but also tastes superior, with improved flavour and nutrition boosting consumer preference.",
-      },
-      {
-        title: "Increases Crop Resilience in Harsh Conditions",
-        description:
-          "Even during drought or extreme weather, crops remain green and healthy. Multiplier strengthens the crop’s natural connection with the environment.",
-      },
-      {
-        title: "Fertilises Soil and Promotes Self-Reliant Farming",
-        description:
-          "Multiplier brings deep-buried earthworms (2–3 meters) to the surface, enhancing soil fertility. Within 5–7 years, farmers can naturally generate up to 120 tonnes of vermicompost annually.",
-      },
-    ],
-    usage: [
-      {
-        title: "Application Method",
-        description:
-          "Flood/Running water, Drip irrigation, Foliar/Pump Spray, Broadcasting or Mixing with Cow dung or Granular fertilizers",
-      },
-      {
-        title: "Seed Treatment",
-        description: "10–20g per 1kg of seed",
-      },
-      {
-        title: "Soil Treatment",
-        description: "1kg per acre before ploughing",
-      },
-      {
-        title: "Drip Irrigation",
-        description:
-          "250–500g in 200L water, 1–2 times/week through drip or running water",
-      },
-      {
-        title: "Foliar Spray",
-        description: "1g per 1L water",
-      },
-      {
-        title: "Frequency of Use",
-        description: "1–2kg per acre every month",
-      },
-      {
-        title: "Compatibility",
-        description: "Can be used with pesticides or other fertilizers",
-      },
-    ],
-    storage: {
-      shelfLife: "3 years from the date of manufacture",
-      instructions: [
-        "Keep in a cool, dry place, away from direct sunlight.",
-        "It is not harmful to the environment, animals, plants or human beings, but consult a doctor if infected.",
-        "Keep away from children.",
-        "Results may vary due to changes in environment or method of use.",
-      ],
-    },
-  },
-];
+
 
 const ProductDetail = () => {
   const { id } = useParams() as { id: string };
-  const product = productData.find((p) => p.id === id);
+  const intId=Number(id);
+  const product = productData.find((p) => p.id === intId);
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
   const { addToCart } = useCartStore();
@@ -308,14 +170,7 @@ const ProductDetail = () => {
             <button
               onClick={() =>
                 addToCart({
-                  id: Number(product.id),
-                  image: product.images[0],
-                  title: product.name,
-                  price: product.price,
-                  description: product.description,
-                  category: product.category,
-                  featured: false,
-                  quantity: quantity,
+                  ...product,quantity
                 })
               }
               className="flex-1 bg-green-600 text-white px-6 py-3 rounded-lg flex items-center justify-center hover:bg-green-700"

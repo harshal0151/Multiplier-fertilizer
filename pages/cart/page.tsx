@@ -46,14 +46,14 @@ const CartPage = () => {
               >
                 <div className="flex items-center gap-4">
                   <Image
-                    src={item.image}
-                    alt={item.title}
+                    src={item.images[0]}
+                    alt={item.name}
                     width={80}
                     height={80}
                     className="rounded"
                   />
                   <div>
-                    <h3 className="font-semibold text-lg">{item.title}</h3>
+                    <h3 className="font-semibold text-lg">{item.name}</h3>
                     <p className="text-gray-500 text-sm">₹ {item.price}</p>
                   </div>
                 </div>

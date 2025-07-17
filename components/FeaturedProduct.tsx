@@ -4,50 +4,51 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { CiShoppingCart } from "react-icons/ci";
-import cardimg from "../app/img1.png";
+// import cardimg from "../app/img1.png";
 import { useCartStore } from "@/store/useCartStore";
+import { productData } from "@/constant/product";
 
-import images from "@/components/assets/productsImgs/ProductImgs";
 
-const productData = [
-  {
-    id: 1,
-    // image: cardimg,
-    title: "Kad Multiplier 250gm Pouch",
-    price: 305,
-    originalPrice: 305,
-    image: images.kad250,
-    description: "A 100% organic soil-rejuvenation technology that boosts crop yield,",
-    category: "fertilizer",
-    rating: 4.5,
-    features: ["Organic", "Eco-Friendly"],
-    featured: true,
-  },
-  {
-    id: 2,
-    image: cardimg,
-    title: "Nitrogen Booster",
-    price: 5499,
-    originalPrice: 9999,
-    description: "High-nitrogen mix for faster plant growth and greener.",
-    category: "agrochemicals",
-    rating: 4.8,
-    features: ["Nitrogen Rich", "Fast Growth"],
-    featured: true,
-  },
-  {
-    id: 3,
-    image: cardimg,
-    title: "Phosphate Enhancer",
-    price: 2999,
-    originalPrice: 9999,
-    description: "Promotes strong root development and flowering.",
-    category: "fertilizer",
-    rating: 4.7,
-    features: ["Root Growth", "Flowering"],
-    featured: true,
-  },
-];
+
+// const productData = [
+//   {
+//     id: 1,
+//     // image: cardimg,
+//     title: "Kad Multiplier 250gm Pouch",
+//     price: 305,
+//     originalPrice: 305,
+//     image: images.kad250,
+//     description: "A 100% organic soil-rejuvenation technology that boosts crop yield,",
+//     category: "fertilizer",
+//     rating: 4.5,
+//     features: ["Organic", "Eco-Friendly"],
+//     featured: true,
+//   },
+//   {
+//     id: 2,
+//     image: cardimg,
+//     title: "Nitrogen Booster",
+//     price: 5499,
+//     originalPrice: 9999,
+//     description: "High-nitrogen mix for faster plant growth and greener.",
+//     category: "agrochemicals",
+//     rating: 4.8,
+//     features: ["Nitrogen Rich", "Fast Growth"],
+//     featured: true,
+//   },
+//   {
+//     id: 3,
+//     image: cardimg,
+//     title: "Phosphate Enhancer",
+//     price: 2999,
+//     originalPrice: 9999,
+//     description: "Promotes strong root development and flowering.",
+//     category: "fertilizer",
+//     rating: 4.7,
+//     features: ["Root Growth", "Flowering"],
+//     featured: true,
+//   },
+// ];
 
 const FeaturedProduct = ({ className }: { className?: string }) => {
   const { addToCart, cart } = useCartStore();
@@ -77,8 +78,8 @@ const FeaturedProduct = ({ className }: { className?: string }) => {
                   className="w-[40%] lg:w-full relative overflow-hidden"
                 >
                   <Image
-                    src={product.image}
-                    alt={product.title}
+                    src={product.images[0]}
+                    alt={product.name}
                     width={500}
                     height={300}
                     className="object-contain w-full h-full sm:h-36 lg:h-52"
@@ -88,7 +89,7 @@ const FeaturedProduct = ({ className }: { className?: string }) => {
                 <div className="p-4 w-[65%] lg:w-full flex flex-col justify-between ">
                   <div className="gap-0.5 flex flex-col">
                     <h3 className="text-lg font-semibold text-gray-800">
-                      {product.title}
+                      {product.name}
                     </h3>
                     <p className="text-sm text-gray-600 mt-1 mb-3 line-clamp-2">
                       {product.description}
@@ -123,7 +124,7 @@ const FeaturedProduct = ({ className }: { className?: string }) => {
                     </div>
 
                     <button
-                      onClick={() => addToCart({ ...product, quantity: 1 })}
+                      onClick={() => addToCart({...product,quantity:1})}
                       disabled={cart.some((item) => item.id === product.id)}
                       className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 flex items-center justify-center transition-colors duration-300 w-full sm:w-auto"
                     >
