@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CiTrash } from "react-icons/ci";
 import { useCartStore } from "../../store/useCartStore";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 const CartPage = () => {
   const { cart, removeFromCart, incrementQuantity, decrementQuantity } =
@@ -25,6 +26,8 @@ const CartPage = () => {
   }, [cart]);
 
   return (
+    <>
+  <WhatsAppFloat/>
     <div className="p-6 md:p-12">
       <h2 className="sm:text-5xl text-4xl p-8 lg:mt-10 font-semibold w-full text-center">
         Product <span className="text-green-700 font-semibold">Cart</span>
@@ -110,6 +113,7 @@ const CartPage = () => {
         )}
       </div>
     </div>
+      </>
   );
 };
 

@@ -16,6 +16,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { CheckCircle } from "lucide-react";
 import { useCartStore } from "@/store/useCartStore";
 import { productData } from "@/constant/product";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 // Dummy Product Data
 
 
@@ -53,6 +54,8 @@ const ProductDetail = () => {
     ));
 
   return (
+    <>
+    <WhatsAppFloat/>
     <div className="min-h-screen bg-gray-50 px-4 lg:px-20 py-10">
       {/* Breadcrumb */}
       {/* <div className="text-sm text-gray-600 mb-4">
@@ -351,6 +354,7 @@ const ProductDetail = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

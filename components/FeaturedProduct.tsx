@@ -64,12 +64,12 @@ const FeaturedProduct = ({ className }: { className?: string }) => {
         </p>
       </div>
       <section className={`py-8 px-4 bg-green-50 ${className}`}>
-        <div className="max-w-7xl mx-auto">
-          <div className="grid gap-8  lg:grid-cols-3">
+        <div className="max-w-7xl mx-auto ">
+          <div className="grid gap-8  lg:grid-cols-3 ">
             {featured.map((product) => (
               <div
                 key={product.id}
-                className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 group flex flex-row lg:flex-col justify-between"
+                className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 group flex flex-row lg:flex-col justify-between border-b-5 border-green-500 pb-2"
               >
                 <Link
                   href={`/product/${product.id}`}
