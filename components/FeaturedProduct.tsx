@@ -69,7 +69,7 @@ const FeaturedProduct = ({ className }: { className?: string }) => {
             {featured.map((product) => (
               <div
                 key={product.id}
-                className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 group flex flex-row lg:flex-col justify-between border-b-5 border-green-500 pb-2"
+                className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 group flex flex-row lg:flex-col justify-between   pb-2"
               >
                 <Link
                   href={`/product/${product.id}`}

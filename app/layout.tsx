@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script"; // Import next/script
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
   description:
     "Multiplier Fertilizer provides premium organic fertilizers and pest control solutions like Kad Multiplier and Narayanastra to boost crop yield, improve soil health, and ensure sustainable farming.",
   keywords:
-    "Multiplier Fertilizer, Kad Multiplier, Kad Multiplier 5KG Box, Kad Multiplier 10KG, Narayanastra, Narayanastra Box, organic fertilizer, organic pest control, sustainable farming, crop yield booster, eco-friendly fertilizer, soil health, natural pest solution",
+    "Multiplier Fertilizer, Kad Multiplier, Kad Multiplier 5KG Box, Kad Multiplier 10KG, Narayanastra, Narayanastra Box, organic fertilizer, organic pest control, sustainable farming, crop yield booster, eco-friendly fertilizer, soil health, natural pest solution, multiplier fertilizer organic fertilizer",
   authors: [{ name: "Multiplier Fertilizer" }],
   robots: "index, follow",
 
@@ -32,7 +33,6 @@ export const metadata: Metadata = {
     type: "website",
   },
 
-
   alternates: {
     canonical: "https://multiplier-fertilizer.vercel.app/",
   },
@@ -50,6 +50,23 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        {/* Google Analytics */}
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=G-QLKYVMZFXX`}
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+        >
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-QLKYVMZFXX');
+          `}
+        </Script>
+
         <Nav />
         <div className="mt-[90px]">{children}</div>
         <Toaster richColors theme="light" position="top-right" expand />
