@@ -86,7 +86,7 @@ export default function RootLayout({
         </noscript>
 
         <Nav />
-        <div className="mt-[90px]">{children}</div>
+        <div className="mt-[60px] md:mt-[70px]">{children}</div>
         <Toaster richColors theme="light" position="top-right" expand />
         <Footer />
       </body>
