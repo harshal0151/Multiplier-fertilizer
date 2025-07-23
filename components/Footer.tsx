@@ -44,7 +44,7 @@ const Footer = () => {
                 <FaFacebookF className="text-xl" />
               </a>
               <a
-                href="https://wa.me/919999999999" // replace with your WhatsApp number
+                href="https://wa.me/+918855848948" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:opacity-75"
