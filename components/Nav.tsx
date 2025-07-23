@@ -45,14 +45,14 @@ const Nav = () => {
   return (
     <section className="fixed top-0 w-full z-50">
       {/* Top Strip */}
-      <div className="text-end p-1 bg-green-50 text-[12px] text-green-900 shadow-sm">
+      {/* <div className="text-end p-1 bg-green-50 text-[12px] text-green-900 shadow-sm">
         <Link href="/login" className="hover:underline">
           Shubham Bidkar
         </Link>
         <Link href="/" className="mx-4 hover:underline">
          +91 8208784767
         </Link>
-      </div>
+      </div> */}
 
       {/* Main Navbar */}
       <div
