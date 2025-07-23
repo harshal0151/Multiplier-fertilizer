@@ -60,7 +60,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="#home"
+                  href="/"
                   className="text-gray-400 hover:text-green-400 transition-colors"
                 >
                   Home
@@ -68,7 +68,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="#products"
+                  href="/products"
                   className="text-gray-400 hover:text-green-400 transition-colors"
                 >
                   Products
@@ -76,21 +76,14 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="#about"
+                  href="/about"
                   className="text-gray-400 hover:text-green-400 transition-colors"
                 >
                   About Us
                 </a>
               </li>
 
-              <li>
-                <a
-                  href="#contact"
-                  className="text-gray-400 hover:text-green-400 transition-colors"
-                >
-                  Contact
-                </a>
-              </li>
+             
             </ul>
           </div>
 
@@ -103,7 +96,7 @@ const Footer = () => {
                   href="#"
                   className="text-gray-400 hover:text-green-400 transition-colors"
                 >
-                  NPK Fertilizers
+                  Kad Multiplier 250gm Pouch to 10KG Box
                 </a>
               </li>
               <li>
@@ -111,15 +104,7 @@ const Footer = () => {
                   href="#"
                   className="text-gray-400 hover:text-green-400 transition-colors"
                 >
-                  Organic Compost
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-green-400 transition-colors"
-                >
-                  Micronutrients
+                 Narayanastra Bottle 100ml
                 </a>
               </li>
             </ul>
@@ -135,17 +120,17 @@ const Footer = () => {
                   size={20}
                 />
                 <div>
-                  <p className="text-gray-400">123 Agriculture Drive</p>
-                  <p className="text-gray-400">Farmland, FL 12345</p>
+                  <p className="text-gray-400"> Subhash Nagar, Lane No.1,Old Dhule</p>
+                  <p className="text-gray-400">Dhule - 424001</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="text-green-400 flex-shrink-0" size={20} />
-                <p className="text-gray-400">+1 (555) 123-4567</p>
+                <p className="text-gray-400">+91 8208784767</p>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="text-green-400 flex-shrink-0" size={20} />
-                <p className="text-gray-400">evolvetech@gmail.com</p>
+                <p className="text-gray-400">shubhamgawali.dhule@gmail.com</p>
               </div>
             </div>
           </div>

@@ -47,10 +47,10 @@ const Nav = () => {
       {/* Top Strip */}
       <div className="text-end p-1 bg-green-50 text-[12px] text-green-900 shadow-sm">
         <Link href="/login" className="hover:underline">
-          Harshal
+          Shubham Bidkar
         </Link>
-        <Link href="/register" className="mx-4 hover:underline">
-          patilharshal@2122
+        <Link href="/" className="mx-4 hover:underline">
+         +91 8208784767
         </Link>
       </div>
 
