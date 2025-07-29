@@ -19,11 +19,11 @@ export const metadata: Metadata = {
     title: "Multiplier Fertilizer | Boost Crop Yield Naturally",
     description:
       "Premium organic fertilizers and natural pest control solutions designed for sustainable farming and high-yield crops.",
-    url: "https://multiplier-fertilizer.vercel.app/",
+    url: "https://multiplierfertilizer.com/",
     siteName: "Multiplier Fertilizer",
     images: [
       {
-        url: "https://yourdomain.com/images/fertilizer-og-image.jpg",
+        url: "https://multiplierfertilizer.com/images/fertilizer-og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Multiplier Fertilizer Products",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical: "https://multiplier-fertilizer.vercel.app/",
+    canonical: "https://multiplierfertilizer.com/",
   },
 
   icons: {
