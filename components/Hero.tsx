@@ -8,9 +8,9 @@ import "swiper/css/effect-fade";
 import {  Leaf } from "lucide-react";
 
 
-import BannerTwo from "../components/assets/sliders/Slide Image (1).jpg";
-import BannerThree from "../components/assets/sliders/Slide Image (2).jpg";
-import BannerFour from "../components/assets/sliders/Slide Image (3).jpg";
+import BannerTwo from "../public/sliders/Slide Image (1).jpg";
+import BannerThree from "../public/sliders/Slide Image (2).jpg";
+import BannerFour from "../public/sliders/Slide Image (3).jpg";
 
 const images = [ BannerTwo, BannerThree, BannerFour];
 

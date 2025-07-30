@@ -23,10 +23,40 @@ export const metadata: Metadata = {
     siteName: "Multiplier Fertilizer",
     images: [
       {
-        url: "https://multiplierfertilizer.com/1kg/1kg-front.webp",
+        url: "/public/1kg/1kg-front.webp",
         width: 1200,
         height: 630,
-        alt: "Multiplier Fertilizer Products",
+        alt: "Kad Multiplier 1KG",
+      },
+      {
+        url: "/public/5kg/5kg-1.webp",
+        width: 1200,
+        height: 630,
+        alt: "Kad Multiplier 5KG",
+      },
+      {
+        url: "/public/10kg/10kg-1.webp",
+        width: 1200,
+        height: 630,
+        alt: "Kad Multiplier 10KG",
+      },
+      {
+        url: "/public/250gm/250-front.webp",
+        width: 1200,
+        height: 630,
+        alt: "Kad Multiplier 250gm",
+      },
+      {
+        url: "/public/Narayanastra/Narayanastra 100ml Bottle .png",
+        width: 1200,
+        height: 630,
+        alt: "Narayanastra 100ml Bottle",
+      },
+      {
+        url: "/public/Narayanastra/Narayanastra Box (1).png",
+        width: 1200,
+        height: 630,
+        alt: "Narayanastra Box",
       },
     ],
     locale: "en_US",
