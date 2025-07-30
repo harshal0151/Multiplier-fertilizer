@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     siteName: "Multiplier Fertilizer",
     images: [
       {
-        url: "https://multiplierfertilizer.com/images/fertilizer-og-image.jpg",
+        url: "https://multiplierfertilizer.com/1kg/1kg-front.webp",
         width: 1200,
         height: 630,
         alt: "Multiplier Fertilizer Products",
