@@ -95,7 +95,7 @@ const CheckoutForm = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          to: 'mohitsasane76@gmail.com',
+          to: 'shubhamgawali.dhule@gmail.com',
           subject: 'Welcome!',
           message: 'Thank you for signing up!',
           values,
@@ -109,7 +109,7 @@ const CheckoutForm = () => {
       await toast.promise(promise, {
         loading: 'Sending email...',
         success: () => {
-          window.location.href='https://wa.me/9284117732';
+          window.location.href='https://wa.me/8855848948';
           return `Order placed successfully!`;
         },
         error: 'Failed to send email.',

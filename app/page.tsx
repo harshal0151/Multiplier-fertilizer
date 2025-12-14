@@ -2,7 +2,7 @@ import Faqs from "@/components/Faqs";
 import FeaturedProduct from "@/components/FeaturedProduct";
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
-import Testimonials from "@/components/Testimonials";
+// import Testimonials from "@/components/Testimonials";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 
@@ -16,7 +16,7 @@ export default function Home() {
         <FeaturedProduct />
         <Features/>
         <Faqs/> 
-        <Testimonials/>
+        {/* <Testimonials/> */}
       </div>
     </main>
   );
